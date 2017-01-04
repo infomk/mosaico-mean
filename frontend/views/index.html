@@ -1,0 +1,79 @@
+<html ng-app="mosaico">
+	<head>
+		<title>Mosaico - AngularJS</title>
+
+		<meta charset="utf-8"/>
+
+		<link rel="stylesheet" type="text/css" href="../public/css/angular-material.min.css" />
+		<link rel="stylesheet" type="text/css" href="../public/css/bootstrap.min.css" />
+		<link rel="stylesheet" type="text/css" href="../public/css/style.css" />
+
+	</head>
+
+	<body ng-controller="mosaicoController">
+
+		<md-toolbar>
+		    <div class="md-toolbar-tools">
+		      <h2 class="md-flex">Estações meteorológicas - Mosaico UPF</h2>
+		    </div>
+	  	</md-toolbar>
+
+	  	<md-content class="inputEstacao">
+		  	<md-input-container>
+				<label>Nome</label>
+			  	<input ng-model="estacao.nome">
+			</md-input-container>
+
+			<md-input-container>
+			  	<label>Cidade</label>
+			  	<input ng-model="estacao.cidade">
+		  	</md-input-container>
+				  
+		  	<md-button class="md-raised md-primary" ng-click="adicionarEstacaoServer(estacao)" ng-show="!estacao._id">Adicionar</md-button>
+
+		  	<md-button class="md-raised md-primary" ng-click="salvarEstacaoServer(estacao)" ng-show="estacao._id">Salvar</md-button>
+	  	</md-content>
+		
+	  	<table class="table table-striped">
+		      <tbody>
+				  <thead>
+				      <tr>
+					  <td><b>Nome</b></td>
+					  <td><b>Cidade</b></td>
+					  <td><b>Atualizar</b></td>
+					  <td><b>Remover</b></td>
+				      </tr>
+				  </thead>
+
+				  <tr ng-repeat="estacao in estacoes">
+				      <td>{{estacao.nome}}</td>
+				      <td>{{estacao.cidade}}</td>
+				      <td><md-button class="md-raised" ng-click="editarEstacaoServer(estacao)">Editar</md-button> </td>
+				      <td><md-button class="md-raised md-warn" ng-click="removerEstacaoServer(estacao)">Remover</md-button> </td>
+				  </tr>
+
+		      </tbody>
+		  </table>
+
+		  <!-- <ui-gmap-google-map center='map.center' zoom='map.zoom'></ui-gmap-google-map> -->
+
+
+	</body>
+
+	<script type="text/javascript" src="../public/libs/angular.min.js"></script>
+	<script type="text/javascript" src="../public/libs/angular-animate.min.js"></script>
+	<script type="text/javascript" src="../public/libs/angular-aria.min.js"></script>
+	<script type="text/javascript" src="../public/libs/angular-messages.min.js"></script>
+	<script type="text/javascript" src="../public/libs/angular-material.min.js"></script>
+	<script type="text/javascript" src="../public/libs/jquery-3.1.1.min.js"></script>	
+	<script type="text/javascript" src="../public/libs/bootstrap.min.js"></script>
+	<script type="text/javascript" src="../public/libs/angular-simple-logger.js"></script>
+	<script type="text/javascript" src="../public/libs/google-maps.js"></script>
+	<script type="text/javascript" src="../public/libs/underscore.js"></script>
+	<script type="text/javascript" src="../public/libs/angular-google-maps.js"></script>	
+
+	<script type="text/javascript" src="../scripts/app.js"></script>
+	<script type="text/javascript" src="../scripts/controllers/mosaico.js"></script>
+	<script type="text/javascript" src="../scripts/services/mosaico.js"></script>
+
+</html>

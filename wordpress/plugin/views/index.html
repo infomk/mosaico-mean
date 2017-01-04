@@ -1,0 +1,42 @@
+
+<div ng-controller="mosaicoController" ng-app="mosaico">
+
+
+	<h2 class="md-flex">Estações meteorológicas - Mosaico UPF</h2>
+
+
+  	<div class="inputEstacao">
+  	
+		<label>Nome</label>
+		<input ng-model="estacao.nome">
+
+		<label>Cidade</label>
+		<input ng-model="estacao.cidade">
+			  
+	  	<button class="md-raised md-primary" ng-click="adicionarEstacaoServer(estacao)" ng-show="!estacao._id">Adicionar</button>
+
+	  	<button class="md-raised md-primary" ng-click="salvarEstacaoServer(estacao)" ng-show="estacao._id">Salvar</button>
+  	</div>
+	
+  	<table class="table table-striped">
+	      <tbody>
+			  <thead>
+			      <tr>
+				  <td><b>Nome</b></td>
+				  <td><b>Cidade</b></td>
+				  <td><b>Atualizar</b></td>
+				  <td><b>Remover</b></td>
+			      </tr>
+			  </thead>
+
+			  <tr ng-repeat="estacao in estacoes">
+			      <td>{{estacao.nome}}</td>
+			      <td>{{estacao.cidade}}</td>
+			      <td><button class="md-raised" ng-click="editarEstacaoServer(estacao)">Editar</button> </td>
+			      <td><button class="md-raised md-warn" ng-click="removerEstacaoServer(estacao)">Remover</button> </td>
+			  </tr>
+
+	      </tbody>
+	  </table>
+
+</div>
